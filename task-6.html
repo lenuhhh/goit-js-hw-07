@@ -1,53 +1,42 @@
-<div id="controls">
-  <input type="number" min="1" max="100" step="1" />
-  <button type="button" data-create>Create</button>
-  <button type="button" data-destroy>Destroy</button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div id="boxes">
-  document.addEventListener('DOMContentLoaded', () => {
-  const input = document.querySelector('#controls input');
-  const createButton = document.querySelector('[data-create]');
-  const destroyButton = document.querySelector('[data-destroy]');
-  const boxesContainer = document.querySelector('#boxes');
-
-  // Генерує випадковий колір у форматі HEX
-  function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215)
-      .toString(16)
-      .padStart(6, 0)}`;
-  }
-
-  // Створює та додає нові div елементи
-  function createBoxes(amount) {
-    const elements = [];
-    for (let i = 0; i < amount; i++) {
-      const size = 30 + i * 10; // Розмір збільшується на 10px для кожного наступного елемента
-      const div = document.createElement('div');
-      div.style.width = `${size}px`;
-      div.style.height = `${size}px`;
-      div.style.backgroundColor = getRandomHexColor();
-      elements.push(div);
-    }
-    boxesContainer.append(...elements);
-  }
-
-  // Очищає контейнер
-  function destroyBoxes() {
-    boxesContainer.innerHTML = '';
-  }
-
-  // Обробник натискання на кнопку Create
-  createButton.addEventListener('click', () => {
-    const amount = parseInt(input.value, 10);
-    if (amount >= 1 && amount <= 100) {
-      destroyBoxes(); // Очищує попередні елементи
-      createBoxes(amount); // Створює нові
-    }
-    input.value = ''; // Очищує значення інпуту
-  });
-
-  // Обробник натискання на кнопку Destroy
-  destroyButton.addEventListener('click', destroyBoxes);
-});
-</div>
+  <title>Document</title>
+</head>
+<body>
+  <ul id="categories">
+    <li class="item">
+      <h2>Animals</h2>
+      <ul>
+        <li>Cat</li>
+        <li>Hamster</li>
+        <li>Horse</li>
+        <li>Parrot</li>
+      </ul>
+    </li>
+    <li class="item">
+      <h2>Products</h2>
+      <ul>
+        <li>Bread</li>
+        <li>Parsley</li>
+        <li>Cheese</li>
+      </ul>
+    </li>
+    <li class="item">
+      <h2>Technologies</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+      </ul>
+    </li>
+  </ul>
+  
+  <script src="./js/task-6.js" type="module"></script>
+</body>
+</html>
