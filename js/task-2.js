@@ -27,7 +27,6 @@ const images = [
 
 
 const galleryList = document.querySelector(`.gallery`);
-//console.log(galleryList);
 
 const createGalleryItem = itemInfo => {
   const galleryItemEl = document.createElement(`li`);
